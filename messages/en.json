@@ -1,0 +1,224 @@
+{
+  "Index": {
+    "title": "DurianX",
+    "description": "SaaS and Startup Landing Page"
+  },
+  "Navbar": {
+    "home": "Home",
+    "services": "Services",
+    "solution": "Solution",
+    "faq": "FAQ",
+    "about": "About",
+    "blog": "Blog"
+  },
+  "Hero": {
+    "title": "More Than Meals—We Move Your Day",
+    "description": "Empower Your Life. Cambodia's Super-App, designed to power your everyday needs with speed, care, and convenience.",
+    "getStarted": "Get Started"
+  },
+  "Feature": {
+    "heading": "Our Feature",
+    "title": "All-in-One Services Designed for You",
+    "description": "Experience the ultimate convenience with Cambodia's leading super-app.",
+    "viewAll": "View All Solution",
+    "items": {
+      "food": {
+        "title": "Food Delivery",
+        "desc": "Satisfy Your Hunger, Anytime, Anywhere. Bringing local street eats and restaurant favorites directly to your door."
+      },
+      "grocery": {
+        "title": "Grocery Delivery",
+        "desc": "Shop Smart, Get Fresh. Fast delivery of daily essentials and fresh produce from your favorite local markets."
+      },
+      "express": {
+        "title": "Express Parcel Services",
+        "desc": "Quick Deliveries, No Hassle. Swift and secure city-wide package delivery for your personal or business needs."
+      },
+      "transport": {
+        "title": "Transport",
+        "desc": "One App, Many Services. Book rides easily and get to your destination with reliable local drivers."
+      },
+      "local": {
+        "title": "Local-First Approach",
+        "desc": "Built specifically for the Cambodian market with a deep understanding of local needs and preferences."
+      },
+      "speed": {
+        "title": "Speed & Convenience",
+        "desc": "Focus on speed, care, and convenience with real-time tracking and dependable service you can trust."
+      }
+    }
+  },
+  "Service": {
+    "heading": "Our Service",
+    "title": "Empowering Your Life with All-in-One Services",
+    "description": "Food / Grocery / Express / Transport",
+    "viewAll": "View All Service",
+    "cards": {
+      "streamlined": {
+        "title": "Streamlined Success",
+        "subtitle": "Elevate Your Business with DurianX SaaS!",
+        "desc": "Unveil the future of efficiency with DurianX SaaS – a cutting-edge solution designed to streamline your operations"
+      },
+      "gateway": {
+        "title": "DurianX SaaS",
+        "subtitle": "Your Gateway to Streamlined Excellence",
+        "desc": "Dive into the future of efficient business operations with DurianX SaaS. Our solution is crafted to streamline your SaaS experience"
+      },
+      "unlocking": {
+        "title": "Unlocking Potential",
+        "subtitle": "DurianX SaaS - Redefining Productivity",
+        "desc": "Tailored website solutions to meet specific business needs and goals."
+      },
+      "simplify": {
+        "title": "Simplify, Optimize, Succeed",
+        "subtitle": "Your Gateway to Streamlined Excellence",
+        "desc": "Simplify your SaaS experience with DurianX, where optimization meets success"
+      },
+      "efficiency": {
+        "title": "Efficiency Redefined",
+        "subtitle": "DurianX - Your Strategic Partner!",
+        "desc": "DurianX SaaS is more than a solution; it's your strategic partner in achieving operational excellence"
+      },
+      "innovate": {
+        "title": "Innovate with Confidence",
+        "subtitle": "DurianX Unleashes Creativity!",
+        "desc": "DurianX SaaS invites you to innovate with confidence. Our solution is a catalyst for creativity"
+      },
+      "tailored": {
+        "title": "Tailored Solutions for Your Unique Success!",
+        "subtitle": "DurianX Unleashes Creativity!",
+        "desc": "Your success story deserves a tailored solution. Enter DurianX SaaS – a platform customizable to meet your unique business needs."
+      },
+      "fastTrack": {
+        "title": "Fast-Track Your Success",
+        "subtitle": "DurianX SaaS Accelerates Your Journey!",
+        "desc": "DurianX SaaS is your express route to success. With streamlined processes and accelerated functionalities"
+      }
+    }
+  },
+  "Solution": {
+    "heading": "Our Solution",
+    "title": "More Than Just Delivery",
+    "description": "We are committed to empowering local communities and businesses through technology.",
+    "viewAll": "View All Solution"
+  },
+  "Faq": {
+    "heading": "Knowledge Base",
+    "title": "FAQ & Documentation",
+    "description": "DurianX provides customers complete entry to knowledge base API and documentation."
+  },
+  "Blog": {
+    "heading": "Tech News",
+    "title": "Our Blog & News",
+    "description": "We share essential insights from the technology sector, AI, and the world of software development.",
+    "viewAll": "View All Blog"
+  },
+  "Feedback": {
+    "heading": "Feedback",
+    "title": "Merchant & Consumer Feedback"
+  },
+  "Interest": {
+    "title": "Get DurianX in Your Pocket",
+    "hireUs": "Hire Us",
+    "bookMeeting": "Book A Meeting"
+  },
+  "Footer": {
+    "rights": "© 2024 {name}. All Rights Reserved.",
+    "designedBy": "Designed by <bold>{name}</bold> using <bold>{tech}</bold> only.",
+    "explore": {
+      "title": "Explore",
+      "about": "About DurianX",
+      "solutions": "Our Solutions",
+      "blog": "Our Blog"
+    },
+    "expertise": {
+      "title": "Expertise",
+      "cloud": "Cloud Integration Solutions",
+      "web": "Custom Web Development",
+      "data": "Data Analytics and Insights"
+    },
+    "services": {
+      "title": "Services",
+      "cyber": "Cybersecurity & Compliance",
+      "ai": "AI-Powered Automation",
+      "ux": "User Experience Design"
+    },
+    "info": {
+      "title": "Info",
+      "faq": "FAQ",
+      "docs": "Documentation",
+      "contact": "Get in touch"
+    }
+  },
+  "AppSuite": {
+    "title": "From essential services to earning opportunities. We're an all-in-one platform.",
+    "tabs": {
+      "consumer": "Consumer",
+      "driver": "Driver",
+      "merchant": "Merchant",
+      "enterprise": "Enterprise"
+    },
+    "categories": {
+      "deliveries": "Deliveries",
+      "mobility": "Mobility",
+      "others": "Others",
+      "earnings": "Earnings",
+      "operations": "Operations",
+      "logistics": "Logistics"
+    },
+    "services": {
+      "food": {
+        "title": "Food",
+        "desc": "Have all your cravings delivered to your doorstep."
+      },
+      "express": {
+        "title": "Express",
+        "desc": "Send packages, documents, and beyond."
+      },
+      "rides": {
+        "title": "Rides",
+        "desc": "Choose from a variety of vehicles to take you from A to B safely."
+      },
+      "hotels": {
+        "title": "Hotels",
+        "desc": "Discover and book amazing hotel stays."
+      },
+      "rewards": {
+        "title": "Rewards",
+        "desc": "Earn points and unlock benefits with every transaction."
+      },
+      "driverDeliveries": {
+        "title": "Deliver & Earn",
+        "desc": "Earn competitive rates by delivering hot meals and urgent packages."
+      },
+      "flexible": {
+        "title": "Flexible Partner",
+        "desc": "Drive on your own schedule with instant payouts."
+      },
+      "fulltime": {
+        "title": "Full-Time Staff",
+        "desc": "Enjoy a stable salary, health benefits, and career opportunities."
+      },
+      "orderManager": {
+        "title": "Order Manager",
+        "desc": "Accept and track orders seamlessly via the merchant hub."
+      },
+      "menuHub": {
+        "title": "Menu Control",
+        "desc": "Manage items, active hours, and prices dynamically."
+      },
+      "expressLogistics": {
+        "title": "Logistics Integrations",
+        "desc": "Dispatch instant couriers for your storefront shipments."
+      },
+      "bulkShipping": {
+        "title": "Corporate Delivery",
+        "desc": "Automated high-volume transport for business contracts."
+      },
+      "employeeMeals": {
+        "title": "Team Benefits",
+        "desc": "Manage corporate lunch accounts and catering for staff."
+      }
+    }
+  }
+}
