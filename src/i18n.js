@@ -1,15 +1,19 @@
 import { getRequestConfig } from 'next-intl/server';
 
-// Can be imported from a shared config
+// Supported locales
 const locales = ['km', 'en'];
 
-export default getRequestConfig(async ({ locale }) => {
-  // Validate that the incoming `locale` parameter is valid, 
-  // otherwise fallback to a default (e.g. 'en') to avoid crashes.
-  const activeLocale = locales.includes(locale) ? locale : 'km';
+export default getRequestConfig(async ({ requestLocale }) => {
+  // next-intl v4: requestLocale is a Promise, must be awaited
+  let locale = await requestLocale;
+
+  // Validate locale — fall back to 'en' if missing or unrecognized
+  if (!locale || !locales.includes(locale)) {
+    locale = 'en';
+  }
 
   return {
-    locale: activeLocale,
-    messages: (await import(`../messages/${activeLocale}.json`)).default
+    locale,
+    messages: (await import(`../messages/${locale}.json`)).default
   };
 });

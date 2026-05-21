@@ -8,7 +8,7 @@ import {getMessages, getTranslations} from 'next-intl/server';
 
 
 const plus_Jakarta_Sans = Plus_Jakarta_Sans({subsets: ['latin']});
-const kantumruy_Pro = Kantumruy_Pro({subsets: ['khmer'], weight: ['400', '700']});
+const kantumruy_Pro = Kantumruy_Pro({subsets: ['khmer', 'latin'], weight: ['300', '400', '500', '600', '700']});
 
 export async function generateMetadata({params: {locale}}) {
   const t = await getTranslations({locale, namespace: 'Index'});

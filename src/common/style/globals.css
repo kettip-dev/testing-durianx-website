@@ -132,13 +132,19 @@ body {
   z-index: 10;
 }
 
-/* Khmer Language Improvements */
+/* Khmer Language Improvements & Font Fixes */
 [lang="km"] {
   line-height: 1.7;
 }
 
 [lang="km"] body {
   line-height: 1.7;
+}
+
+/* Reset letter-spacing globally for Khmer — critical!
+   Khmer subscript marks attach to base consonants and break apart with any letter-spacing. */
+[lang="km"] * {
+  letter-spacing: normal !important;
 }
 
 [lang="km"] .leading-relaxed {
@@ -155,7 +161,8 @@ body {
 [lang="km"] h4,
 [lang="km"] h5,
 [lang="km"] h6 {
-  line-height: 1.4 !important;
+  line-height: 1.45 !important;
+  overflow: visible !important;
 }
 
 [lang="km"] p {
@@ -174,6 +181,34 @@ body {
 
 [lang="km"] .leading-\[60px\] {
   line-height: 1.35 !important;
+}
+
+/* Fix Khmer gradient text rendering bug:
+   background-clip:text with -webkit-text-fill-color:transparent clips
+   Khmer subscript/descender characters, making them invisible or broken.
+   Override to solid, crisp colors for the Khmer locale. */
+[lang="km"] .bg-text,
+[lang="km"] .bg-text-dark {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: #171717 !important;
+  overflow: visible !important;
+}
+
+.dark [lang="km"] .bg-text,
+.dark [lang="km"] .bg-text-dark {
+  color: #f5f5f5 !important;
+}
+
+[lang="km"] .bg-clip-text.text-transparent {
+  -webkit-text-fill-color: initial !important;
+  color: #171717 !important;
+}
+
+.dark [lang="km"] .bg-clip-text.text-transparent {
+  color: #f5f5f5 !important;
 }
 
 /* Infinite sliding marquee animations for hero showcase */
