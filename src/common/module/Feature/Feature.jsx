@@ -1,3 +1,4 @@
+"use client";
 import Card from "@/common/component/element/Card";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import React from "react";

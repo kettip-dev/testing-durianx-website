@@ -1,3 +1,4 @@
+"use client";
 import SectionHeading from "@/common/component/element/SectionHeading";
 import React from "react";
 import { SiKnowledgebase } from "react-icons/si";

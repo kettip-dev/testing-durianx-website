@@ -15,7 +15,7 @@ const CardContact = () => {
 
           <h1 className="mt-10 text-lg">Head-quarters:</h1>
           <h2 className="text-neutral-500">Indonesia, Jakarta</h2>
-          <h2 className="text-neutral-500">Email: mfahlevi740@gmail.com</h2>
+          <h2 className="text-neutral-500">Email: support@durianx.com</h2>
         </ComponentTransition>
         <div className="w-full h-auto md:h-[300px] md:basis-[55%] ">
           <ContactForm />

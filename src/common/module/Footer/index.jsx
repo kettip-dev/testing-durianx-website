@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { FaMedium } from "react-icons/fa6";
+import { FaFaceFrown, FaFaceGrin, FaMedium } from "react-icons/fa6";
 import { FaTwitter, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { Link } from "@/navigation";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
@@ -85,18 +86,11 @@ const Footer = () => {
         <div className="gap-5 flex py-5 justify-center items-center w-full">
           <FaMedium size={30} />
           <FaTwitter size={30} />
-          <FaLinkedin size={30} />
-          <FaDiscord size={30} />
+          <FaFaceGrin size={30} />
         </div>
         <div className="flex flex-col text-center">
-          <h1 className="text-sm">{t("rights", { name: "Fahlevi" })}</h1>
-          <h1 className="text-sm">
-            {t.rich("designedBy", {
-              name: "Fahlevi",
-              tech: "Next Js",
-              bold: (chunks) => <span className="font-bold">{chunks}</span>,
-            })}
-          </h1>
+          <h1 className="text-sm">{t("rights", { name: "DurianX" })}</h1>
+
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+"use client";
 import { ButtonSpot } from "@/common/component/element/ButtonSpot";
 import Image from "@/common/component/element/Image";
 import clsx from "clsx";
@@ -5,26 +6,26 @@ import { Link } from "@/navigation";
 import React from "react";
 import { useTranslations } from "next-intl";
 
-export default function CardOffer({title, className = ''}) {
+export default function CardOffer({ title, className = '' }) {
   const t = useTranslations("Interest");
   return (
-    <div className={clsx(className,`px-2 py-20 relative`)}>
+    <div className={clsx(className, `px-2 py-20 relative`)}>
       <div className="w-full px-5 relative overflow-hidden flex-col rounded-3xl flex justify-center items-center bg-neutral-300/50 dark:bg-neutral-800/50 py-40">
         <Image
-          src="https://images.unsplash.com/photo-1653302803784-c5b7918dbf43?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/banner/116104.jpg"
           alt="image"
-          width={400}
+          width={1400}
           height={400}
           priority
           className="w-full h-full object-cover z-[-9] absolute inset-0"
         />
-        <h1 className="text-3xl md:text-7xl py-5 text-center bg-clip-text bg-gradient-to-r dark:from-white from-black from-50% dark:to-[#b1b1b1] to-[#292929]   md:w-[80%] text-transparent font-bold">
-          {title}
-        </h1>
+        {title && (
+          <h1 className="text-3xl md:text-7xl py-5 text-center bg-clip-text bg-gradient-to-r dark:from-white from-black from-50% dark:to-[#b1b1b1] to-[#292929]   md:w-[80%] text-transparent font-bold">
+            {title}
+          </h1>
+        )}
         <div className="w-full flex flex-col items-center md:flex-row justify-center gap-3">
-          <Link href="/contact">
-            <ButtonSpot title={t("hireUs")} />
-          </Link>
+
           <Link href="/contact">
             <ButtonSpot title={t("bookMeeting")} />
           </Link>

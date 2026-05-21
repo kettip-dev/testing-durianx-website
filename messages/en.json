@@ -9,7 +9,125 @@
     "solution": "Solution",
     "faq": "FAQ",
     "about": "About",
-    "blog": "Blog"
+    "blog": "Blog",
+    "sub": {
+      "food": "Food Delivery",
+      "grocery": "Grocery Delivery",
+      "express": "Express Parcel",
+      "transport": "Transport Services",
+      "reliable": "Reliable & Fast",
+      "partners": "Empowering Partners",
+      "tracking": "Real-Time Tracking",
+      "support": "24/7 Support"
+    },
+    "viewAllServices": "View All Services",
+    "viewAllSolutions": "View All Solutions",
+    "menu": "Menu",
+    "joinPartner": "Join as a Partner",
+    "helpCenter": "Help Center",
+    "language": "Language",
+    "aboutCompany": "About Company",
+    "consumers": "Consumers",
+    "drivers": "Drivers",
+    "merchants": "Merchants",
+    "enterprises": "Enterprises",
+    "partnerOptions": {
+      "driver": "Be a Driver Partner",
+      "merchant": "Be a Merchant Partner",
+      "corporate": "Enterprise Client"
+    },
+    "companyStory": {
+      "title": "Company Story",
+      "desc": "Who we are and what our vision is"
+    },
+    "newsroom": {
+      "title": "Newsroom",
+      "desc": "Latest news and announcements from our community"
+    },
+    "insideDurianX": {
+      "title": "Inside DurianX",
+      "desc": "Stories and insights behind the evolution of DurianX"
+    },
+    "careers": {
+      "title": "Careers",
+      "desc": "Join our mission to move Cambodia forward"
+    },
+    "investors": {
+      "title": "Investor Relations",
+      "desc": "Information and updates for our investors"
+    },
+    "foundation": {
+      "title": "DurianX Foundation",
+      "desc": "Our foundation helping elevate Cambodian communities"
+    },
+    "locations": {
+      "title": "Locations",
+      "desc": "Cities and countries we operate in"
+    },
+    "safety": {
+      "title": "Trust & Safety",
+      "desc": "What we do to ensure your safety and trust"
+    },
+    "impact": {
+      "title": "Impact",
+      "desc": "Our actions driving community development and impact"
+    },
+    "foodDelivery": {
+      "title": "Food Delivery",
+      "desc": "Satisfy your hunger anytime, anywhere"
+    },
+    "groceryDelivery": {
+      "title": "Grocery Delivery",
+      "desc": "Fresh groceries delivered straight to your door"
+    },
+    "expressParcel": {
+      "title": "Express Parcel",
+      "desc": "Fast, reliable, and secure parcel delivery"
+    },
+    "transportServices": {
+      "title": "Transport Services",
+      "desc": "Safe and convenient daily commutes"
+    },
+    "superApp": {
+      "title": "Super-App Services",
+      "desc": "Explore a suite of everyday features in one app"
+    },
+    "driveDeliver": {
+      "title": "Drive & Deliver",
+      "desc": "Earn more with flexible working hours"
+    },
+    "driverSupport": {
+      "title": "Driver Support",
+      "desc": "Support center and safety guidelines for drivers"
+    },
+    "driverBenefits": {
+      "title": "Driver Benefits",
+      "desc": "Exclusive rewards, insurance, and benefits"
+    },
+    "merchantPartner": {
+      "title": "Merchant Partner",
+      "desc": "Grow your store sales with our digital platform"
+    },
+    "foodBusiness": {
+      "title": "Food for Business",
+      "desc": "Corporate food delivery and catering solutions"
+    },
+    "advertising": {
+      "title": "Advertising",
+      "desc": "Promote your business and reach millions of users"
+    },
+    "giftCards": {
+      "title": "Gift Cards",
+      "desc": "Reward your employees and corporate partners"
+    },
+    "corporateCommute": {
+      "title": "Corporate Commute",
+      "desc": "Manage employee travel and transport efficiently"
+    },
+    "mapApi": {
+      "title": "Map API",
+      "desc": "Advanced mapping and location services APIs"
+    }
   },
   "Hero": {
     "title": "More Than Meals—We Move Your Day",
@@ -118,7 +236,7 @@
     "title": "Merchant & Consumer Feedback"
   },
   "Interest": {
-    "title": "Get DurianX in Your Pocket",
+    "title": "",
     "hireUs": "Hire Us",
     "bookMeeting": "Book A Meeting"
   },
@@ -217,8 +335,24 @@
       },
       "employeeMeals": {
         "title": "Team Benefits",
-        "desc": "Manage corporate lunch accounts and catering for staff."
+        "desc": "Manage corporate lunch accounts and catering for staff"
       }
+    }
+  },
+  "DownloadApp": {
+    "badge": "DOWNLOAD APP",
+    "title": "Get DurianX in Your Pocket",
+    "description": "Empower your life. Cambodia's super-app designed to power your everyday needs with speed, care, and convenience. Download now!",
+    "playStore": {
+      "label": "Get it on"
+    },
+    "appStore": {
+      "label": "Download on the"
+    },
+    "stats": {
+      "downloads": "Downloads",
+      "rating": "Rating",
+      "reviews": "Reviews"
     }
   }
 }

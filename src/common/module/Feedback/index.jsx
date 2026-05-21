@@ -1,3 +1,4 @@
+"use client";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import SectionHeading from "@/common/component/element/SectionHeading";
 import React from "react";

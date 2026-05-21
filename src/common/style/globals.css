@@ -228,6 +228,17 @@ body {
   animation: marquee 35s linear infinite;
 }
 
-.hover\:pause-marquee:hover {
-  animation-play-state: paused;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-10%) translateY(0);
+  }
+  50% {
+    transform: translateY(-10%) translateY(-15px);
+  }
 }
+
+.animate-float-phone {
+  animation: float 6s ease-in-out infinite;
+}
+
+

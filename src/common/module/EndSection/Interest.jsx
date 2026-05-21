@@ -1,3 +1,4 @@
+"use client";
 import CardOffer from "@/common/component/element/CardOffer";
 import React from "react";
 import { useTranslations } from "next-intl";

@@ -4,6 +4,7 @@ import Service from '../Service'
 import AppSuite from '../AppSuite'
 import Solution from '../Solution'
 import Feature from '../Feature/Feature'
+import DownloadApp from '../DownloadApp'
 import Interest from '../EndSection/Interest'
 
 const Homepage = () => {
@@ -14,7 +15,8 @@ const Homepage = () => {
       <Feature />
       <Service />
       <Solution />
-      <Interest />
+      <DownloadApp />
+      {/* <Interest /> */}
     </div>
   )
 }

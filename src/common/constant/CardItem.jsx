@@ -12,22 +12,22 @@ export const CardItem = [
         content: "We deeply understand the Cambodian market, allowing us to tailor our services to the unique needs of local users and businesses."
     },
     {
-        img: '/solution.png',
+        img: '/banner/02.jpg',
         title: "Reliable & Fast",
         content: "Speed and care are at our core. We ensure your food, groceries, and parcels arrive quickly and securely every time."
     },
     {
-        img: '/solution1.png',
+        img: '/banner/01.jpg',
         title: "Empowering Partners",
         content: "We provide flexible opportunities for drivers and powerful tools for merchants to grow their businesses with us."
     },
     {
-        img: 'https://images.unsplash.com/photo-1604076913837-52ab5629fba9?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        img: '/banner/2150471691.jpg',
         title: "Real-Time Tracking",
         content: "Stay informed with accurate real-time tracking for all your deliveries and rides, ensuring peace of mind."
     },
     {
-        img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        img: '/banner/call-center.jpg',
         title: "24/7 Support",
         content: "Our dedicated support team is always available to assist you with any questions or issues, anytime you need us."
     },
