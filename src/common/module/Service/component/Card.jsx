@@ -2,7 +2,7 @@
 import React from "react";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import { useTranslations } from "next-intl";
-import LottiePlayer from "@/common/component/element/LottiePlayer";
+import Image from "next/image";
 
 const Card = () => {
   const t = useTranslations("Service.cards");
@@ -40,35 +40,35 @@ const Card = () => {
         </div>
       </ComponentTransition>
 
-      {/* 2. Lottie Dashboard / SaaS Analytics Animation (replacing /img1.png) */}
+      {/* 2. Food delivery banner image */}
       <ComponentTransition
         delay={0.2}
         className={imageCardClass("md:basis-[calc(66.666%-0.5rem)]")}
       >
-        <div className="w-full h-full relative flex justify-center items-center p-4">
-          <LottiePlayer
-            autoplay
-            loop
-            src="https://lottie.host/4a58b8f2-8419-482a-a92c-0e241763ef8b/2sY2T2rBae.json"
-            style={{ width: "100%", height: "100%", maxHeight: "240px" }}
-            className="w-full h-full object-contain"
+        <div className="w-full h-full relative">
+          <Image
+            src="/img1.png"
+            alt="DurianX Food Delivery"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 66vw"
           />
         </div>
       </ComponentTransition>
 
       {/* Row 2 - Cards 3, 4, 5 */}
-      {/* 3. Lottie Delivery Rider Animation (replacing first /img.png) */}
+      {/* 3. DurianX person with phone */}
       <ComponentTransition
         delay={0.1}
         className={imageCardClass("md:basis-[calc(33.333%-1rem)]")}
       >
-        <div className="w-full h-full relative flex justify-center items-center p-4">
-          <LottiePlayer
-            autoplay
-            loop
-            src="https://lottie.host/e285d852-7e0f-48d6-95ff-a70d10b7f8c2/gT7G9g9o5Z.json"
-            style={{ width: "100%", height: "100%", maxHeight: "240px" }}
-            className="w-full h-full object-contain"
+        <div className="w-full h-full relative">
+          <Image
+            src="/img.png"
+            alt="DurianX App"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       </ComponentTransition>
@@ -171,18 +171,18 @@ const Card = () => {
         </div>
       </ComponentTransition>
 
-      {/* 10. Lottie Super-App Connection Animation (replacing second /img.png) */}
+      {/* 10. Merchant with tablet */}
       <ComponentTransition
         delay={0.1}
         className={imageCardClass("md:basis-[calc(33.333%-1rem)]")}
       >
-        <div className="w-full h-full relative flex justify-center items-center p-4">
-          <LottiePlayer
-            autoplay
-            loop
-            src="https://lottie.host/6822c95e-bd5d-4f1b-8390-50d4f9342416/9Kk9H9xX0Z.json"
-            style={{ width: "100%", height: "100%", maxHeight: "240px" }}
-            className="w-full h-full object-contain"
+        <div className="w-full h-full relative">
+          <Image
+            src="/img 2.png"
+            alt="DurianX Merchant"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       </ComponentTransition>

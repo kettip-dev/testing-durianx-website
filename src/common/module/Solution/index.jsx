@@ -3,9 +3,6 @@ import React from "react";
 import { FaUmbrella } from "react-icons/fa";
 import CardSolution from "./component/Card";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import { Link } from "@/navigation";
-import Buttons from "@/common/component/element/Buttons";
-import Button from "@/common/component/element/Button";
 import { useTranslations } from "next-intl";
 
 const Solution = () => {
@@ -24,14 +21,6 @@ const Solution = () => {
         </p>
       </ComponentTransition>
       <CardSolution/>
-      <ComponentTransition className="w-full md:flex-row flex-col items-center flex justify-center gap-3">
-        <Link href='/solution' className="w-full rounded-full">
-        <Button
-          title={t("viewAll")}
-          className="hover:!bg-neutral-950 hover:dark:!bg-neutral-100 transition-colors !rounded-full duration-300 overflow-hidden !bg-transparent outline outline-1 dark:outline-white outline-neutral-950 dark:!text-white !text-black w-full py-5"
-          />
-        </Link>
-      </ComponentTransition>
     </div>
   );
 };
