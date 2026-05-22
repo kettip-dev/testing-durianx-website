@@ -1,6 +1,6 @@
 "use client";
 import clsx from "clsx";
-import { Link, usePathname } from "@/navigation";
+import { Link, usePathname, useRouter } from "@/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
@@ -15,6 +15,7 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../element/LanguageSwitcher";
 
 const Navbar = () => {
+  const router = useRouter();
   const t = useTranslations("Navbar");
   const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -253,6 +254,16 @@ const Navbar = () => {
 
           {/* Right Side: Switchers (Desktop) */}
           <div className="lg:flex hidden w-[35%] items-center justify-end gap-4">
+            {/* Search icon */}
+            <button
+              onClick={() => { closeAll(); router.push("/search"); }}
+              aria-label="Search"
+              className="p-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:text-[#82C341] dark:hover:text-[#82C341] hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-200"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+              </svg>
+            </button>
             <div className="px-2">
               <LanguageSwitcher />
             </div>
@@ -263,6 +274,16 @@ const Navbar = () => {
 
           {/* Right Side: Switchers & Hamburger Toggle (Mobile) */}
           <div className="lg:hidden flex items-center gap-2">
+            {/* Search icon mobile */}
+            <button
+              onClick={() => { closeAll(); router.push("/search"); }}
+              aria-label="Search"
+              className="p-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:text-[#82C341] transition-colors duration-200"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+              </svg>
+            </button>
             <div className="px-1">
               <LanguageSwitcher />
             </div>

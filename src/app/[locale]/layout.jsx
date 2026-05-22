@@ -3,6 +3,7 @@ import '../../common/style/globals.css'
 import Navbar from '@/common/component/navbar/Navbar'
 import Footer from '@/common/module/Footer'
 import { Providers } from '@/common/component/element/Providers'
+import PageTransition from '@/common/component/element/PageTransition'
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, getTranslations} from 'next-intl/server';
 
@@ -26,6 +27,8 @@ export default async function RootLayout({ children, params: { locale } }) {
       <body className={`${locale === 'km' ? kantumruy_Pro.className : plus_Jakarta_Sans.className} dark:bg-black`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
         <Providers>
+        {/* GSAP full-screen curtain transition — fires on every route change */}
+        <PageTransition />
         <div className='flex justify-center items-center'>
           <Navbar />
         </div>
