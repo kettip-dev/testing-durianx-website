@@ -20,6 +20,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeTab, setActiveTab] = useState("about");
   const [scroll, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const navItems = [
     { src: "/", title: t("home") },
@@ -118,8 +119,23 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+
+      // Scrolled past 10px
+      setScrolled(currentScrollY > 10);
+
+      // Hide/Show logic
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false);
+        setActiveDropdown(null);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
     };
 
     const handleOutsideClick = (e) => {
@@ -128,7 +144,7 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
@@ -152,9 +168,15 @@ const Navbar = () => {
       )}
 
       <motion.div
+        animate={{
+          y: isVisible ? 0 : -120,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className={clsx(
-          scroll ? "backdrop-blur-md bg-white/95 dark:bg-[#000000d0] shadow-md border-b-[1px] border-neutral-300 dark:border-neutral-800" : "bg-white/90 dark:bg-black/90 border-b-[1px] border-neutral-200 dark:border-neutral-800",
-          `navbar-container-pill w-full transition-all duration-300 mx-auto max-w-[1500px] py-4 px-5 lg:px-10 fixed top-0 left-0 right-0 z-[99] mt-4 2xl:rounded-3xl`
+          "navbar-container-pill w-full transition-all duration-300 mx-auto py-4 px-5 lg:px-10 fixed top-0 left-0 right-0 z-[99]",
+          scroll
+            ? "backdrop-blur-md bg-white/95 dark:bg-[#000000d0] shadow-md border-b-[1px] border-neutral-300 dark:border-neutral-800 mt-0 max-w-full rounded-none"
+            : "bg-white/90 dark:bg-black/90 border-b-[1px] border-neutral-200 dark:border-neutral-800 mt-4 max-w-[1500px] rounded-full 2xl:rounded-3xl"
         )}
       >
         <div className="flex flex-row justify-between items-center w-full relative">
