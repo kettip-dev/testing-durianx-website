@@ -4,6 +4,7 @@ import React from "react";
 import { TbDeviceVisionPro } from "react-icons/tb";
 import { FaBullseye, FaHandshake, FaUserGroup, FaScaleBalanced, FaHeadset } from "react-icons/fa6";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
+import FuelYourDay from "@/common/component/element/FuelYourDay";
 import { useTranslations } from "next-intl";
 
 const CardAbout = () => {
@@ -25,20 +26,9 @@ const CardAbout = () => {
           </p>
         </div>
         
-        <div className="lg:col-span-5 relative w-full h-[320px] md:h-[400px] rounded-3xl overflow-hidden border-[1px] border-neutral-200 dark:border-neutral-800">
-          <Image
-            src="https://images.unsplash.com/photo-1637836375461-197de8876f90?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt="DurianX Team Collaboration"
-            width={500}
-            height={500}
-            priority
-            className="w-full h-full object-cover rounded-3xl"
-          />
-          {/* Visual card overlay - Flat style */}
-          <div className="absolute bottom-5 left-5 right-5 p-5 bg-neutral-50/90 dark:bg-neutral-950/90 border-[1px] border-neutral-200 dark:border-neutral-800 rounded-2xl">
-            <span className="text-xs uppercase font-bold text-neutral-500 dark:text-neutral-400 tracking-wider">{t("welcomeOverlayBadge")}</span>
-            <p className="text-sm font-semibold text-neutral-800 dark:text-white mt-1">{t("welcomeOverlayTitle")}</p>
-          </div>
+        {/* ── GSAP animated food image with Khmer headline ── */}
+        <div className="lg:col-span-5">
+          <FuelYourDay className="h-[380px] md:h-[460px]" />
         </div>
       </ComponentTransition>
 
