@@ -1,74 +1,174 @@
+"use client";
 import Image from "@/common/component/element/Image";
 import React from "react";
 import { TbDeviceVisionPro } from "react-icons/tb";
-import { FaBullseye } from "react-icons/fa6";
+import { FaBullseye, FaHandshake, FaUserGroup, FaScaleBalanced, FaHeadset } from "react-icons/fa6";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import OurTeam from "./OurTeam";
+import { useTranslations } from "next-intl";
 
 const CardAbout = () => {
+  const t = useTranslations("About");
+
   return (
-    <div className="py-10 w-full flex gap-10 justify-center flex-row flex-wrap relative">
-      <div className="absolute  z-[-9] glowbg w-[100%] top-[100px] md:w-[500px] h-[400px]  left-0 "></div>
-      <ComponentTransition delay={0.1} className="w-full h-[20%]  md:basis-[60%] overflow-hidden rounded-3xl">
-        <div className="w-full h-[500px] rounded-3xl overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1637836375461-197de8876f90?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Header Image"
-          width={400}
-          height={400}
-          priority
-          className="w-full h-auto object-cover rounded-3xl"
-          />
+    <div className="w-full flex flex-col gap-20 py-10 relative">
+      {/* Section 1: Welcome to DurianX (Hero Content Block) */}
+      <ComponentTransition className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-7 flex flex-col justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border-[1px] border-neutral-200 dark:border-neutral-800 mb-6 w-fit">
+            <span>{t("originBadge")}</span>
           </div>
-        <div className="mt-5 py-5 gap-5 h-full ">
-          <div className="w-full px-10 py-10 h-full bg-neutral-100 dark:bg-neutral-950/50 backdrop-blur-sm border-[1px] border-neutral-300 dark:border-neutral-700 rounded-3xl">
-            <FaBullseye size={50} />
-            <h1 className="text-2xl font-bold py-2 text-neutral-800 dark:text-neutral-100">
-              Mission
-            </h1>
-            <p className="text-base text-neutral-800 dark:text-neutral-300 mt-5 ">
-              At DurianX, our mission is to revolutionize the business
-              landscape by delivering innovative SaaS solutions that empower
-              growth and efficiency. We strive to create seamless, user-centric
-              software that simplifies complex processes, enabling businesses to
-              thrive in a rapidly evolving digital world. With a commitment to
-              excellence and technological advancement, we aim to be the driving
-              force behind our clients success and transformation.
-            </p>
-          </div>
-        </div>
-      </ComponentTransition>
-      <ComponentTransition delay={0.1} className=" py-5 md:basis-[35%] gap-5 h-full ">
-        <div className="w-full px-10 py-10 h-full bg-neutral-100 dark:bg-neutral-950/50 backdrop-blur-sm border-[1px] border-neutral-300 dark:border-neutral-700 rounded-3xl">
-          <TbDeviceVisionPro size={50} />
-          <h1 className="text-2xl font-bold py-2 text-neutral-800 dark:text-neutral-100">
-            Vision
-          </h1>
-          <p className="text-base text-neutral-800 dark:text-neutral-300 mt-5 ">
-            DurianX envisions a future where businesses harness the power of
-            technology effortlessly. We aim to be the vanguard in creating
-            adaptable, user-centric SaaS solutions that propel enterprises
-            towards success. We envision a digital landscape where our
-            innovative tools and services revolutionize operations, enabling
-            organizations to flourish and stay ahead in an ever-evolving,
-            competitive market, setting new benchmarks for excellence.
+          <h2 className="text-3xl md:text-5xl font-bold text-neutral-800 dark:text-white leading-tight mb-6">
+            {t("welcomeTitle")}
+          </h2>
+          <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            {t("welcomeDesc")}
           </p>
         </div>
-        <div className="w-full overflow-hidden h-full mt-10  bg-neutral-100 dark:bg-neutral-950/50 backdrop-blur-sm border-[1px] border-neutral-300 dark:border-neutral-700 rounded-3xl">
-        <div className="w-full h-[380px] rounded-3xl overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1637792566284-67454a001370?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Header Image"
-          width={400}
-          height={400}
-          priority
-          className="w-full h-auto object-cover rounded-3xl"
+        
+        <div className="lg:col-span-5 relative w-full h-[320px] md:h-[400px] rounded-3xl overflow-hidden border-[1px] border-neutral-200 dark:border-neutral-800">
+          <Image
+            src="https://images.unsplash.com/photo-1637836375461-197de8876f90?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3"
+            alt="DurianX Team Collaboration"
+            width={500}
+            height={500}
+            priority
+            className="w-full h-full object-cover rounded-3xl"
           />
+          {/* Visual card overlay - Flat style */}
+          <div className="absolute bottom-5 left-5 right-5 p-5 bg-neutral-50/90 dark:bg-neutral-950/90 border-[1px] border-neutral-200 dark:border-neutral-800 rounded-2xl">
+            <span className="text-xs uppercase font-bold text-neutral-500 dark:text-neutral-400 tracking-wider">{t("welcomeOverlayBadge")}</span>
+            <p className="text-sm font-semibold text-neutral-800 dark:text-white mt-1">{t("welcomeOverlayTitle")}</p>
           </div>
         </div>
       </ComponentTransition>
-      <OurTeam/>
 
+      {/* Section 2: Built on Collaboration */}
+      <div className="w-full py-10 flex flex-col gap-10">
+        <ComponentTransition delay={0.1} className="text-center md:max-w-2xl md:mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-neutral-800 dark:text-white mb-4">
+            {t("collabHeading")}
+          </h2>
+          <p className="text-base md:text-lg text-neutral-500 dark:text-neutral-400">
+            {t("collabSub")}
+          </p>
+        </ComponentTransition>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              num: t("collabPill1"),
+              title: t("collabTitle1"),
+              desc: t("collabDesc1"),
+              icon: FaUserGroup,
+              iconColor: "text-neutral-700 dark:text-neutral-300"
+            },
+            {
+              num: t("collabPill2"),
+              title: t("collabTitle2"),
+              desc: t("collabDesc2"),
+              icon: FaScaleBalanced,
+              iconColor: "text-neutral-700 dark:text-neutral-300"
+            },
+            {
+              num: t("collabPill3"),
+              title: t("collabTitle3"),
+              desc: t("collabDesc3"),
+              icon: FaHeadset,
+              iconColor: "text-neutral-700 dark:text-neutral-300"
+            }
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <ComponentTransition
+                key={idx}
+                delay={idx * 0.1 + 0.2}
+                className="group px-8 py-10 rounded-[2rem] bg-neutral-50 dark:bg-neutral-950 border-[1px] border-neutral-200 dark:border-neutral-850 transition-colors duration-300 hover:border-neutral-400 dark:hover:border-neutral-750"
+              >
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border-[1px] border-neutral-200/50 dark:border-neutral-800/50">
+                    <Icon className={`text-xl ${item.iconColor}`} />
+                  </div>
+                  <span className="text-3xl font-black text-neutral-350 dark:text-neutral-800 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors duration-300">
+                    {item.num}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  {item.desc}
+                </p>
+              </ComponentTransition>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Section 3: What Drives DurianX Forward */}
+      <div className="w-full py-10 flex flex-col gap-10 relative">
+        <ComponentTransition delay={0.1} className="text-center md:max-w-2xl md:mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-neutral-800 dark:text-white mb-4">
+            {t("forwardHeading")}
+          </h2>
+          <p className="text-base md:text-lg text-neutral-500 dark:text-neutral-400">
+            {t("forwardSub")}
+          </p>
+        </ComponentTransition>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: t("missionTitle"),
+              desc: t("missionDesc"),
+              icon: FaBullseye,
+              badge: "bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400"
+            },
+            {
+              title: t("visionTitle"),
+              desc: t("visionDesc"),
+              icon: TbDeviceVisionPro,
+              badge: "bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400"
+            },
+            {
+              title: t("valuesTitle"),
+              desc: t("valuesDesc"),
+              icon: FaHandshake,
+              badge: "bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400"
+            }
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <ComponentTransition
+                key={idx}
+                delay={idx * 0.1 + 0.3}
+                className="group rounded-[2rem] border-[1px] border-neutral-200 dark:border-neutral-850 p-8 flex flex-col justify-between h-full bg-neutral-50 dark:bg-neutral-950 transition-colors duration-300 hover:border-neutral-400 dark:hover:border-neutral-750"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-8">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400">
+                      Pillar 0{idx + 1}
+                    </span>
+                    <div className="p-3 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border-[1px] border-neutral-200/50 dark:border-neutral-800/50">
+                      <Icon className="text-2xl text-neutral-800 dark:text-neutral-100" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-neutral-800 dark:text-white mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t-[1px] border-neutral-200/50 dark:border-neutral-800/50 flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">DurianX Core</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600" />
+                </div>
+              </ComponentTransition>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
