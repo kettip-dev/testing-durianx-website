@@ -30,6 +30,7 @@ const Navbar = () => {
     { src: "/faq", title: t("faq") },
     { src: "/about", title: t("about"), tabId: "about" },
     { src: "/blog", title: t("blog") },
+    { src: "/partner", title: t("partner") },
   ];
 
   const megaMenuData = useMemo(() => [
@@ -72,7 +73,7 @@ const Navbar = () => {
       id: "merchants",
       label: t("merchants"),
       links: [
-        { title: t("merchantPartner.title"), desc: t("merchantPartner.desc"), src: "/solution#partners" },
+        { title: t("merchantPartner.title"), desc: t("merchantPartner.desc"), src: "/partner" },
         { title: t("foodBusiness.title"), desc: t("foodBusiness.desc"), src: "/services#food" },
         { title: t("advertising.title"), desc: t("advertising.desc"), src: "/solution#tracking" },
       ]
