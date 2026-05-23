@@ -27,10 +27,10 @@ const Navbar = () => {
     { src: "/", title: t("home") },
     { src: "/services", title: t("services"), tabId: "consumers" },
     { src: "/solution", title: t("solution"), tabId: "drivers" },
-    { src: "/faq", title: t("faq") },
     { src: "/about", title: t("about"), tabId: "about" },
     { src: "/blog", title: t("blog") },
     { src: "/partner", title: t("partner") },
+    { src: "/careers", title: t("careersNav") },
   ];
 
   const megaMenuData = useMemo(() => [
@@ -41,7 +41,7 @@ const Navbar = () => {
         { title: t("companyStory.title"), desc: t("companyStory.desc"), src: "/about" },
         { title: t("newsroom.title"), desc: t("newsroom.desc"), src: "/blog" },
         { title: t("insideDurianX.title"), desc: t("insideDurianX.desc"), src: "/blog" },
-        { title: t("careers.title"), desc: t("careers.desc"), src: "/about" },
+        { title: t("careers.title"), desc: t("careers.desc"), src: "/careers" },
         { title: t("investors.title"), desc: t("investors.desc"), src: "/about" },
         { title: t("foundation.title"), desc: t("foundation.desc"), src: "/about" },
         { title: t("locations.title"), desc: t("locations.desc"), src: "/about" },
