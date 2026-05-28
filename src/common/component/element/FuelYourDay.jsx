@@ -287,7 +287,7 @@ export default function FuelYourDay({ className = "" }) {
                   ref={(el) => (charsRef.current[i] = el)}
                   className="inline-block select-none"
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Noto Sans Khmer', system-ui, sans-serif",
+                    fontFamily: "var(--font-misans-khmer), 'MiSans Khmer', system-ui, sans-serif",
                     fontSize: "clamp(1.6rem, 4.5vw, 3.5rem)",
                     fontWeight: 800,
                     lineHeight: 1.25,
