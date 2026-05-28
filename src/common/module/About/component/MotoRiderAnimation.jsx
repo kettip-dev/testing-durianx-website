@@ -23,6 +23,8 @@ export default function MotoRiderAnimation() {
   const milestone1Ref = useRef(null);
   const milestone2Ref = useRef(null);
   const milestone3Ref = useRef(null);
+  const wheelFrontRef = useRef(null);
+  const wheelRearRef = useRef(null);
 
   // Speed line refs (individual — no hooks in loops)
   const sl0 = useRef(null); const sl1 = useRef(null);
@@ -39,13 +41,22 @@ export default function MotoRiderAnimation() {
     setStatusText(t("step1"));
 
     const ctx = gsap.context(() => {
-      // ── Idle wheel bobbing (whole rider container bobs) ──
+      // ── Idle wheel bobbing ──
       gsap.to(riderRef.current, {
         y: "+=1",
         duration: 0.08,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
+      });
+
+      // ── Wheel spin — idle slow, accelerates with scroll ──
+      const wheelSpin = gsap.to([wheelFrontRef.current, wheelRearRef.current], {
+        rotation: 360,
+        repeat: -1,
+        duration: 1.2,       // default slow idle speed
+        ease: "none",
+        transformOrigin: "50% 50%",
       });
 
       // ── Master scrubbed timeline ──
@@ -62,6 +73,9 @@ export default function MotoRiderAnimation() {
             if (p < 0.33) setStatusText(t("step1"));
             else if (p < 0.70) setStatusText(t("step2"));
             else setStatusText(t("step3"));
+            // Sync wheel spin speed — faster as rider accelerates
+            const spinDuration = p > 0.05 ? Math.max(0.18, 1.2 - p * 1.0) : 1.2;
+            wheelSpin.timeScale(1.2 / spinDuration);
           },
         },
       });
@@ -141,7 +155,7 @@ export default function MotoRiderAnimation() {
       {/* ── Arena ── */}
       <div
         ref={arenaRef}
-        className="w-full h-[420px] md:h-[520px] relative overflow-hidden"
+        className="w-full h-[560px] md:h-[660px] relative overflow-hidden"
       >
         {/* Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:36px_36px] opacity-60 pointer-events-none" />
@@ -202,7 +216,7 @@ export default function MotoRiderAnimation() {
           ref={riderRef}
           className="absolute z-[6] pointer-events-none select-none"
           style={{
-            bottom: "76px",
+            bottom: "50px",
             width: "280px",
             height: "280px",
           }}
@@ -261,6 +275,52 @@ export default function MotoRiderAnimation() {
             className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.22)] relative z-[3]"
             draggable={false}
           />
+
+          {/* ── Front wheel spin ring ── */}
+          <div
+            ref={wheelFrontRef}
+            className="absolute pointer-events-none z-[4]"
+            style={{
+              right: "0%",
+              bottom: "0%",
+              width: "52px",
+              height: "52px",
+              transform: "translate(-50%, 0)",
+            }}
+          >
+            {/* Outer dashed ring */}
+            <div className="absolute inset-0 rounded-full border-[2px] border-dashed opacity-50"
+              style={{ borderColor: ACCENT }} />
+            {/* Inner solid ring */}
+            <div className="absolute inset-[10px] rounded-full border-[1.5px] opacity-30"
+              style={{ borderColor: ACCENT }} />
+            {/* Hub dot */}
+            <div className="absolute inset-[22px] rounded-full"
+              style={{ background: ACCENT, opacity: 0.6 }} />
+          </div>
+
+          {/* ── Rear wheel spin ring ── */}
+          <div
+            ref={wheelRearRef}
+            className="absolute pointer-events-none z-[4]"
+            style={{
+              left: "22%",
+              bottom: "2%",
+              width: "52px",
+              height: "52px",
+              transform: "translate(-50%, 0)",
+            }}
+          >
+            {/* Outer dashed ring */}
+            <div className="absolute inset-0 rounded-full border-[2px] border-dashed opacity-50"
+              style={{ borderColor: ACCENT }} />
+            {/* Inner solid ring */}
+            <div className="absolute inset-[10px] rounded-full border-[1.5px] opacity-30"
+              style={{ borderColor: ACCENT }} />
+            {/* Hub dot */}
+            <div className="absolute inset-[22px] rounded-full"
+              style={{ background: ACCENT, opacity: 0.6 }} />
+          </div>
         </div>
 
         {/* ── Milestones — flat boxes ── */}
