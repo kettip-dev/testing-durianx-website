@@ -10,7 +10,7 @@ export const metadata = {
 
 const page = () => {
   return (
-    <div className='mt-20 flex justify-center'>
+    <div className='mt-16 w-full'>
       <About />
     </div>
   )

@@ -1,9 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaStore, FaBuildingColumns, FaGlobe, FaCircleCheck } from "react-icons/fa6";
+import { FaStore, FaBuildingColumns, FaGlobe, FaArrowRight } from "react-icons/fa6";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import { useTranslations } from "next-intl";
+
+const TAB_THEMES = {
+  merchants: { accentColor: "#82C341", glowColor: "rgba(130,195,65,0.12)", number: "01" },
+  banks:     { accentColor: "#3b82f6", glowColor: "rgba(59,130,246,0.12)",  number: "02" },
+  government:{ accentColor: "#f59e0b", glowColor: "rgba(245,158,11,0.12)", number: "03" },
+};
 
 export default function PartnershipTabs() {
   const t = useTranslations("About");
@@ -15,143 +21,203 @@ export default function PartnershipTabs() {
       title: t("merchantsTitle"),
       icon: FaStore,
       description: t("merchantsDesc"),
-      benefits: [
-        t("merchantsBenefit1"),
-        t("merchantsBenefit2"),
-        t("merchantsBenefit3"),
-        t("merchantsBenefit4")
-      ],
-      accent: "text-neutral-700 bg-neutral-150 border-neutral-300 dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-850"
+      benefits: [t("merchantsBenefit1"), t("merchantsBenefit2"), t("merchantsBenefit3"), t("merchantsBenefit4")],
     },
     {
       id: "banks",
       title: t("banksTitle"),
       icon: FaBuildingColumns,
       description: t("banksDesc"),
-      benefits: [
-        t("banksBenefit1"),
-        t("banksBenefit2"),
-        t("banksBenefit3")
-      ],
-      accent: "text-neutral-700 bg-neutral-150 border-neutral-300 dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-850"
+      benefits: [t("banksBenefit1"), t("banksBenefit2"), t("banksBenefit3")],
     },
     {
       id: "government",
       title: t("governmentTitle"),
       icon: FaGlobe,
       description: t("governmentDesc"),
-      benefits: [
-        t("governmentBenefit1"),
-        t("governmentBenefit2"),
-        t("governmentBenefit3")
-      ],
-      accent: "text-neutral-700 bg-neutral-150 border-neutral-300 dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-850"
-    }
+      benefits: [t("governmentBenefit1"), t("governmentBenefit2"), t("governmentBenefit3")],
+    },
   ];
 
   const currentTab = partnershipData.find((tab) => tab.id === activeTab);
+  const theme = TAB_THEMES[activeTab];
 
   return (
-    <ComponentTransition delay={0.3} className="w-full py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 mb-4">
+    <ComponentTransition delay={0.3} className="w-full py-20">
+
+      {/* ── Header ── */}
+      <div className="mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-3 mb-5"
+        >
+          <div className="w-8 h-px" style={{ background: theme.accentColor }} />
+          <span className="text-[11px] font-black uppercase tracking-[0.22em]" style={{ color: theme.accentColor }}>
+            Partnership Ecosystem
+          </span>
+        </motion.div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.08 }}
+          className="text-4xl md:text-6xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.05] mb-5 max-w-3xl"
+        >
           {t("partnerHeading")}
-        </h2>
-        <p className="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="text-lg text-neutral-500 dark:text-neutral-400 max-w-xl font-light leading-relaxed"
+        >
           {t("partnerSub")}
-        </p>
+        </motion.p>
       </div>
 
-      {/* Tabs Selector */}
-      <div className="flex flex-wrap justify-center gap-3 md:gap-5 mb-10 max-w-4xl mx-auto px-4">
-        {partnershipData.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = tab.id === activeTab;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl text-sm md:text-base font-semibold transition-all duration-300 border-[1px] ${
-                isActive
-                  ? "bg-neutral-900 text-white border-neutral-800 dark:bg-white dark:text-black dark:border-neutral-100"
-                  : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400 dark:bg-neutral-950 dark:text-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700"
-              }`}
+      {/* ── Full flat layout: left tab rail + right content ── */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-16 items-start">
+
+        {/* Left: vertical tab selector */}
+        <div className="md:col-span-3 flex md:flex-col gap-2 md:gap-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0">
+          {partnershipData.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = tab.id === activeTab;
+            const tabTheme = TAB_THEMES[tab.id];
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className="relative flex items-center gap-3 py-4 md:py-5 pr-6 text-left group flex-shrink-0 md:flex-shrink transition-all duration-300"
+              >
+                {/* Left accent bar */}
+                <div
+                  className="w-[3px] flex-shrink-0 rounded-full transition-all duration-400 md:absolute md:left-0 md:top-0 md:bottom-0 md:w-[3px]"
+                  style={{
+                    height: "100%",
+                    background: isActive ? tabTheme.accentColor : "transparent",
+                    boxShadow: isActive ? `0 0 12px ${tabTheme.accentColor}88` : "none",
+                  }}
+                />
+                <div className={`flex items-center gap-3 md:pl-5 transition-all duration-300 ${isActive ? "translate-x-1" : ""}`}>
+                  <Icon
+                    className="text-lg flex-shrink-0 transition-colors duration-300"
+                    style={{ color: isActive ? tabTheme.accentColor : "rgb(163 163 163)" }}
+                  />
+                  <div className="flex flex-col items-start">
+                    <span
+                      className="text-xs font-black uppercase tracking-widest transition-colors duration-300"
+                      style={{ color: isActive ? tabTheme.accentColor : "rgb(163 163 163)" }}
+                    >
+                      {tabTheme.number}
+                    </span>
+                    <span
+                      className={`text-sm font-bold leading-tight transition-colors duration-300 whitespace-nowrap ${
+                        isActive ? "text-neutral-900 dark:text-white" : "text-neutral-400 dark:text-neutral-600"
+                      }`}
+                    >
+                      {tab.title}
+                    </span>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+
+          {/* Thin vertical track line (desktop) */}
+          <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800 pointer-events-none" />
+        </div>
+
+        {/* Right: flat content area */}
+        <div className="md:col-span-9 relative md:border-l border-neutral-200 dark:border-neutral-800 md:pl-16">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
             >
-              <Icon className="text-lg" />
-              <span>{tab.title}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Content Container */}
-      <div className="relative max-w-5xl mx-auto px-4 min-h-[420px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 p-8 md:p-12 rounded-[2rem] border-[1px] border-neutral-200 dark:border-neutral-850 bg-neutral-50 dark:bg-neutral-950 relative overflow-hidden"
-          >
-            {/* Left Content Column */}
-            <div className="md:col-span-7 flex flex-col justify-center z-10 relative">
-              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border-[1px] mb-6 w-fit ${currentTab.accent}`}>
-                <currentTab.icon />
-                <span>{t("tabSegment")}</span>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-6">
+                <span
+                  className="text-[10px] font-black uppercase tracking-[0.22em]"
+                  style={{ color: theme.accentColor }}
+                >
+                  {theme.number} — {t("tabSegment")}
+                </span>
+                <div className="h-px flex-1 max-w-[60px]" style={{ background: `${theme.accentColor}50` }} />
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-white mb-4">
+              {/* Title */}
+              <h3 className="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white mb-5 leading-tight tracking-tight">
                 {currentTab.title}
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-lg mb-8 leading-relaxed">
+
+              {/* Description */}
+              <p className="text-base md:text-lg text-neutral-500 dark:text-neutral-400 mb-12 leading-relaxed font-light max-w-2xl">
                 {currentTab.description}
               </p>
 
-              {/* Benefits List */}
-              <ul className="space-y-4">
+              {/* Benefits — flat numbered list */}
+              <div className="flex flex-col gap-0">
                 {currentTab.benefits.map((benefit, idx) => (
-                  <li
+                  <motion.div
                     key={idx}
-                    className="flex items-start gap-3.5"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.07, duration: 0.35 }}
+                    className="group flex items-start gap-5 py-5 border-b border-neutral-100 dark:border-neutral-900 last:border-0"
                   >
-                    <FaCircleCheck className="text-neutral-750 dark:text-neutral-300 mt-1 flex-shrink-0 text-lg md:text-xl" />
-                    <span className="text-neutral-700 dark:text-neutral-350 text-sm md:text-base font-medium">
+                    {/* Flat number */}
+                    <span
+                      className="text-[11px] font-black tracking-widest mt-0.5 flex-shrink-0 w-6 transition-colors duration-300"
+                      style={{ color: theme.accentColor }}
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+
+                    <span className="text-sm md:text-base font-medium text-neutral-700 dark:text-neutral-300 leading-relaxed flex-1">
                       {benefit}
                     </span>
-                  </li>
+
+                    {/* Hover arrow */}
+                    <FaArrowRight
+                      className="text-xs mt-1 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
+                      style={{ color: theme.accentColor }}
+                    />
+                  </motion.div>
                 ))}
-              </ul>
-            </div>
+              </div>
 
-            {/* Right Illustration Column */}
-            <div className="md:col-span-5 flex items-center justify-center z-10 relative min-h-[220px] md:min-h-auto">
-              <div className="relative w-full h-full max-w-[280px] md:max-w-none flex items-center justify-center">
-                {/* Visual block representing ecosystem - Flat style */}
-                <div className="w-48 h-48 md:w-56 md:h-56 rounded-3xl bg-neutral-100 dark:bg-neutral-900 border-[1px] border-neutral-200 dark:border-neutral-800 flex flex-col items-center justify-center p-6 text-center relative">
-                  <currentTab.icon className="text-5xl md:text-6xl text-neutral-700 dark:text-neutral-300 mb-4" />
-                  <span className="font-bold text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-tight">
-                    {t("ecosystem")}
-                  </span>
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
-                    {t("superApp")}
-                  </span>
-
-                  {/* Decorative static border circle */}
-                  <div className="absolute inset-0 rounded-3xl border-dashed border-[1.5px] border-neutral-350 dark:border-neutral-800 pointer-events-none" />
-                </div>
-
-                {/* Flat bordered success badge */}
-                <div className="absolute -right-4 -bottom-4 w-28 h-28 rounded-2xl bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-white border-[1px] border-neutral-200 dark:border-neutral-800 flex flex-col items-center justify-center p-3 z-20">
-                  <span className="text-xs uppercase tracking-wider font-extrabold opacity-60">{t("success")}</span>
-                  <span className="text-2xl md:text-3xl font-black mt-1">100%</span>
-                  <span className="text-[10px] opacity-75 mt-1 font-semibold">{t("growthRate")}</span>
+              {/* Bottom flat stat */}
+              <div className="mt-12 flex items-end gap-4">
+                <div>
+                  <div
+                    className="text-5xl font-black leading-none"
+                    style={{ color: theme.accentColor }}
+                  >
+                    100%
+                  </div>
+                  <div
+                    className="h-px mt-2 mb-1.5 w-full"
+                    style={{ background: `linear-gradient(90deg, ${theme.accentColor}60, transparent)` }}
+                  />
+                  <div className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
+                    {t("success")} · {t("growthRate")}
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </ComponentTransition>
   );

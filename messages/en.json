@@ -406,7 +406,12 @@
     "ecosystem": "DurianX Ecosystem",
     "superApp": "Cambodia Super-App",
     "success": "Success",
-    "growthRate": "Growth Rate"
+    "growthRate": "Growth Rate",
+    "deliveryTitle": "Speed & Innovation in Motion",
+    "deliveryDesc": "Our optimized delivery network ensures your orders arrive in record time, powered by smart routing APIs.",
+    "step1": "Order Placed in Phnom Penh",
+    "step2": "Route Optimized via DurianX",
+    "step3": "Instant Delivery Complete — 15 Mins!"
   },
   "Partner": {
     "heroBadge": "Merchant Partner Program",

@@ -4,7 +4,7 @@ import React from "react";
 import { TbDeviceVisionPro } from "react-icons/tb";
 import { FaBullseye, FaHandshake, FaUserGroup, FaScaleBalanced, FaHeadset } from "react-icons/fa6";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import FuelYourDay from "@/common/component/element/FuelYourDay";
+import OfficeImageReveal from "./OfficeImageReveal";
 import { useTranslations } from "next-intl";
 
 const CardAbout = () => {
@@ -12,25 +12,42 @@ const CardAbout = () => {
 
   return (
     <div className="w-full flex flex-col gap-20 py-10 relative">
-      {/* Section 1: Welcome to DurianX (Hero Content Block) */}
-      <ComponentTransition className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-7 flex flex-col justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border-[1px] border-neutral-200 dark:border-neutral-800 mb-6 w-fit">
-            <span>{t("originBadge")}</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-neutral-800 dark:text-white leading-tight mb-6">
-            {t("welcomeTitle")}
-          </h2>
-          <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            {t("welcomeDesc")}
-          </p>
+      {/* Section 1: Welcome & Story (Sticky Split Screen) */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start py-10 relative">
+        {/* Left Column: Scrolling Story Elements with GSAP Scroll Trigger transitions */}
+        <div className="lg:col-span-7 flex flex-col gap-12 lg:gap-16">
+          {/* Story Card 1: Origin Story */}
+          <ComponentTransition className="flex flex-col justify-center bg-white dark:bg-neutral-950/40 p-8 lg:p-12 rounded-[2.5rem] border-[1px] border-neutral-200/50 dark:border-neutral-850/50 shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border-[1px] border-neutral-200 dark:border-neutral-850 mb-6 w-fit">
+              <span>{t("originBadge")}</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-800 dark:text-white leading-tight mb-6 tracking-tight">
+              {t("welcomeTitle")}
+            </h2>
+            <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              {t("welcomeDesc")}
+            </p>
+          </ComponentTransition>
+
+          {/* Story Card 2: Super-App Mission */}
+          <ComponentTransition delay={0.2} className="flex flex-col justify-center bg-white dark:bg-neutral-950/40 p-8 lg:p-12 rounded-[2.5rem] border-[1px] border-neutral-200/50 dark:border-neutral-850/50 shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-100/30 dark:bg-primary-950/40 text-primary-600 dark:text-primary-400 border-[1px] border-primary-200/50 dark:border-primary-850/40 mb-6 w-fit">
+              <span>{t("welcomeOverlayBadge")}</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-800 dark:text-white leading-tight mb-6 tracking-tight">
+              {t("welcomeOverlayTitle")}
+            </h2>
+            <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              {t("intro")}
+            </p>
+          </ComponentTransition>
         </div>
-        
-        {/* ── GSAP animated food image with Khmer headline ── */}
-        <div className="lg:col-span-5">
-          <FuelYourDay className="h-[380px] md:h-[460px]" />
+
+        {/* Right Column: Sticky Pinned Building Image Card */}
+        <div className="lg:col-span-5 w-full lg:sticky lg:top-28 h-[450px] lg:h-[650px] self-start rounded-[2.5rem] overflow-hidden">
+          <OfficeImageReveal />
         </div>
-      </ComponentTransition>
+      </div>
 
       {/* Section 2: Built on Collaboration */}
       <div className="w-full py-10 flex flex-col gap-10">
