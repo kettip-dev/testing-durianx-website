@@ -155,7 +155,7 @@ export default function MotoRiderAnimation() {
       {/* ── Arena ── */}
       <div
         ref={arenaRef}
-        className="w-full h-[560px] md:h-[660px] relative overflow-hidden"
+        className="w-full h-[260px] md:h-[360px] relative overflow-hidden"
       >
         {/* Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:36px_36px] opacity-60 pointer-events-none" />
@@ -216,9 +216,11 @@ export default function MotoRiderAnimation() {
           ref={riderRef}
           className="absolute z-[6] pointer-events-none select-none"
           style={{
-            bottom: "50px",
+            bottom: "65px",
             width: "280px",
             height: "280px",
+            transformOrigin: "bottom center",
+            transform: "scale(0.75)",
           }}
         >
           {/* ── Headlight glow cone ──
